@@ -1,7 +1,6 @@
 package com.learningwithmanos.uniexercise.heroes.source.local
 
 import com.learningwithmanos.uniexercise.heroes.data.Hero
-import javax.inject.Inject
 
 interface DBWrapper {
     fun isHeroDataStored(): Boolean
@@ -9,7 +8,7 @@ interface DBWrapper {
     fun getHeroes(): List<Hero>
 }
 
-class DummyDBWrapper @Inject constructor() : DBWrapper {
+class DummyDBWrapper(): DBWrapper {
     override fun isHeroDataStored(): Boolean {
         return false
     }

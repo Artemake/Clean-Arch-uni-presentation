@@ -15,8 +15,5 @@ interface GetHeroesUC {
 class GetHeroesUCImpl @Inject constructor(
     private val heroRepository: HeroRepository
 ) : GetHeroesUC {
-    override suspend fun execute(): Flow<List<Hero>> {
-        return heroRepository.getHeroes()
-    }
-
+    // TODO
 }

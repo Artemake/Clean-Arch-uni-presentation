@@ -5,8 +5,6 @@ import com.learningwithmanos.uniexercise.heroes.source.local.HeroLocalSource
 import com.learningwithmanos.uniexercise.heroes.source.remote.HeroRemoteSource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 /**
@@ -31,15 +29,7 @@ class HeroRepositoryImpl @Inject constructor(
 ) : HeroRepository {
     @OptIn(ExperimentalCoroutinesApi::class)
     override suspend fun getHeroes(): Flow<List<Hero>>  {
-        return heroLocalSource.isHeroDataStored().flatMapLatest { isHeroDataStored ->
-            if (!isHeroDataStored) {
-                heroRemoteSource.getHeroes().onEach {
-                    heroLocalSource.storeHeroes(it)
-                }
-            } else {
-                heroLocalSource.getHeroes()
-            }
-        }
+        // TODO: Hint - you need to transition from what is retrieved from heroLocalSource::isHeroDataStored to heroRemoteSource::getHeroes. Check flatMapLatest
     }
 
 }

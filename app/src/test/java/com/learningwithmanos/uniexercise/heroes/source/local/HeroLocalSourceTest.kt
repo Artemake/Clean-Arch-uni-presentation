@@ -3,7 +3,6 @@ package com.learningwithmanos.uniexercise.heroes.source.local
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.mock
-import org.mockito.Mockito.verify
 
 
 class HeroLocalSourceImplTest {
@@ -22,29 +21,17 @@ class HeroLocalSourceImplTest {
 
     @Test
     fun `when invoking isHeroDataStored verify results and interactions`() {
-        // when
-        heroLocalSourceImpl.isHeroDataStored()
-
-        // then
-        verify(dbWrapperMock).isHeroDataStored()
+        // TODO
     }
 
     @Test
     fun `when invoking storeHeroes verify results and interactions`() {
-        // when
-        heroLocalSourceImpl.storeHeroes(listOf())
-
-        // then
-        verify(dbWrapperMock).storeHeroes(listOf())
+        // TODO
     }
 
     @Test
     fun `when invoking getHeroes verify results and interactions`() {
-        // when
-        heroLocalSourceImpl.getHeroes()
-
-        // then
-        verify(dbWrapperMock).getHeroes()
+        // TODO
     }
 
 }

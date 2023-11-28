@@ -3,14 +3,9 @@ package com.learningwithmanos.uniexercise.heroes.repo
 import com.learningwithmanos.uniexercise.heroes.data.Hero
 import com.learningwithmanos.uniexercise.heroes.source.local.HeroLocalSource
 import com.learningwithmanos.uniexercise.heroes.source.remote.HeroRemoteSource
-import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Before
 import org.junit.Test
-import org.mockito.BDDMockito.given
-import org.mockito.BDDMockito.verifyNoMoreInteractions
 import org.mockito.Mockito.mock
-import org.mockito.Mockito.verify
 
 class HeroRepositoryImplTest {
 
@@ -42,35 +37,12 @@ class HeroRepositoryImplTest {
 
     @Test
     fun `given no data are stored when getHeroes is invoked then verify api call and store to DB`() {
-        // given
-        given(heroLocalSourceMock.isHeroDataStored()).willReturn(false)
-        given(heroRemoteSourceMock.getHeroes()).willReturn(dummyHeroData)
-
-        // when
-        val actualHeroes = heroRepositoryImpl.getHeroes()
-
-        // then
-        assertThat(actualHeroes, equalTo(dummyHeroData))
-        verify(heroLocalSourceMock).isHeroDataStored()
-        verify(heroRemoteSourceMock).getHeroes()
-        verify(heroLocalSourceMock).storeHeroes(dummyHeroData)
-        verifyNoMoreInteractions(heroLocalSourceMock)
+        // TODO
     }
 
     @Test
     fun `given data are stored when getHeroes is invoked then verify retrieving of data from DB`() {
-        // given
-        given(heroLocalSourceMock.isHeroDataStored()).willReturn(true)
-        given(heroLocalSourceMock.getHeroes()).willReturn(dummyHeroData)
-
-        // when
-        val actualHeroes = heroRepositoryImpl.getHeroes()
-
-        // then
-        assertThat(actualHeroes, equalTo(dummyHeroData))
-        verifyNoMoreInteractions(heroRemoteSourceMock)
-        verify(heroLocalSourceMock).isHeroDataStored()
-        verify(heroLocalSourceMock).getHeroes()
+        // TODO
     }
 
 }

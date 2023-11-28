@@ -1,7 +1,7 @@
 package com.learningwithmanos.uniexercise.heroes.source.remote
 
 import com.learningwithmanos.uniexercise.heroes.data.Hero
-import javax.inject.Inject
+import com.learningwithmanos.uniexercise.heroes.di.CustomRuntimeDI
 
 /**
  * Interface that wraps the framework that is used for the Rest calls
@@ -14,8 +14,8 @@ interface HeroRemoteSource {
     fun getHeroes(): List<Hero>
 }
 
-class HeroRemoteSourceImpl @Inject constructor(
-    private val restFrameworkWrapper: DummyRestFrameworkWrapper,
+class HeroRemoteSourceImpl (
+    private val restFrameworkWrapper: RestFrameworkWrapper = CustomRuntimeDI.getDI().getRestFrameworkWrapper(),
 ): HeroRemoteSource {
 
     override fun getHeroes(): List<Hero> {

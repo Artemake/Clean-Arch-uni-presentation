@@ -4,21 +4,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.learningwithmanos.uniexercise.heroes.data.Hero
 import com.learningwithmanos.uniexercise.heroes.data.Tab
+import com.learningwithmanos.uniexercise.heroes.di.CustomRuntimeDI
 import com.learningwithmanos.uniexercise.heroes.usecase.GetHeroesSortedByHighestNumberOfComicsUC
 import com.learningwithmanos.uniexercise.heroes.usecase.GetHeroesSortedByNameUC
 import com.learningwithmanos.uniexercise.heroes.usecase.GetHeroesUC
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
-import javax.inject.Inject
 
-@HiltViewModel
-class HeroesViewModel @Inject constructor(
-    private val getHeroesUC: GetHeroesUC,
-    private val getHeroesSortedByNameUC: GetHeroesSortedByNameUC,
-    private val getHeroesSortedByHighestNumberOfComicsUC: GetHeroesSortedByHighestNumberOfComicsUC
+class HeroesViewModel(
+    private val getHeroesUC: GetHeroesUC = CustomRuntimeDI.getDI().getHeroesUC(),
+    private val getHeroesSortedByNameUC: GetHeroesSortedByNameUC = CustomRuntimeDI.getDI()
+        .getHeroesSortedByNameUC(),
+    private val getHeroesSortedByHighestNumberOfComicsUC: GetHeroesSortedByHighestNumberOfComicsUC = CustomRuntimeDI.getDI()
+        .getHeroesSortedByHighestNumberOfComicsUC(),
 ) : ViewModel() {
 
     private var _selectedTabStateFlow: MutableStateFlow<Tab> = MutableStateFlow(Tab.Heroes)

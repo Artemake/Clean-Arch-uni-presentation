@@ -11,7 +11,6 @@ import com.learningwithmanos.uniexercise.heroes.ui.HeroesScreen
 import com.learningwithmanos.uniexercise.theme.MyApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

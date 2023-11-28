@@ -1,9 +1,9 @@
 package com.learningwithmanos.uniexercise.heroes.repo
 
 import com.learningwithmanos.uniexercise.heroes.data.Hero
+import com.learningwithmanos.uniexercise.heroes.di.CustomRuntimeDI
 import com.learningwithmanos.uniexercise.heroes.source.local.HeroLocalSource
 import com.learningwithmanos.uniexercise.heroes.source.remote.HeroRemoteSource
-import javax.inject.Inject
 
 /**
  * A repository interface that is used to coordinate the usage of the LocalSource and the
@@ -21,9 +21,9 @@ interface HeroRepository {
     fun getHeroes(): List<Hero>
 }
 
-class HeroRepositoryImpl @Inject constructor(
-    private val heroRemoteSource: HeroRemoteSource,
-    private val heroLocalSource: HeroLocalSource,
+class HeroRepositoryImpl(
+    private val heroRemoteSource: HeroRemoteSource = CustomRuntimeDI.getDI().getHeroRemoteSource(),
+    private val heroLocalSource: HeroLocalSource = CustomRuntimeDI.getDI().getHeroLocalSource(),
 ): HeroRepository {
     override fun getHeroes(): List<Hero> {
         // TODO

@@ -1,7 +1,7 @@
 package com.learningwithmanos.uniexercise.heroes.source.local
 
 import com.learningwithmanos.uniexercise.heroes.data.Hero
-import javax.inject.Inject
+import com.learningwithmanos.uniexercise.heroes.di.CustomRuntimeDI
 
 /**
  * Interface that wraps the local storage data framework that is used
@@ -25,8 +25,8 @@ interface HeroLocalSource {
     fun getHeroes(): List<Hero>
 }
 
-class HeroLocalSourceImpl @Inject constructor(
-    private val dbWrapper: DBWrapper,
+class HeroLocalSourceImpl (
+    private val dbWrapper: DBWrapper = CustomRuntimeDI.getDI().getDBWrapper(),
 ): HeroLocalSource {
     override fun isHeroDataStored(): Boolean {
         // TODO

@@ -11,6 +11,7 @@ interface GetHeroesSortedByHighestNumberOfComicsUC {
     fun execute(): List<Hero>
 }
 
+// TODO: Adjust the to use Hilt-Dagger
 class GetHeroesSortedByHighestNumberOfComicsUCImpl (
     private val heroRepository: HeroRepository = CustomRuntimeDI.getDI().getHeroRepository(),
 ): GetHeroesSortedByHighestNumberOfComicsUC {

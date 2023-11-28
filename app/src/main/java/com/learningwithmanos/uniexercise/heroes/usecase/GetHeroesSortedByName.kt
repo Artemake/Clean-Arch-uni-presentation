@@ -11,6 +11,7 @@ interface GetHeroesSortedByNameUC {
     fun execute(): List<Hero>
 }
 
+// TODO: Adjust the to use Hilt-Dagger
 class GetHeroesSortedByNameUCImpl(
     private val heroRepository: HeroRepository = CustomRuntimeDI.getDI().getHeroRepository(),
 ): GetHeroesSortedByNameUC {

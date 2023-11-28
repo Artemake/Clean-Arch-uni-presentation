@@ -21,6 +21,7 @@ interface HeroRepository {
     fun getHeroes(): List<Hero>
 }
 
+// TODO: Adjust the to use Hilt-Dagger
 class HeroRepositoryImpl(
     private val heroRemoteSource: HeroRemoteSource = CustomRuntimeDI.getDI().getHeroRemoteSource(),
     private val heroLocalSource: HeroLocalSource = CustomRuntimeDI.getDI().getHeroLocalSource(),

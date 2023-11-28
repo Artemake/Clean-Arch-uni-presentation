@@ -8,6 +8,7 @@ interface DBWrapper {
     fun getHeroes(): List<Hero>
 }
 
+// TODO: Adjust the to use Hilt-Dagger
 class DummyDBWrapper(): DBWrapper {
     override fun isHeroDataStored(): Boolean {
         return false

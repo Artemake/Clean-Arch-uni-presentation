@@ -8,12 +8,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.learningwithmanos.uniexercise.heroes.data.Tab
 
 @Composable
 fun HeroesScreen(
-    viewModel: HeroesViewModel = viewModel()
+    viewModel: HeroesViewModel = hiltViewModel()
 ) {
 
     val selectedTab = viewModel.selectedTabStateFlow.collectAsState()

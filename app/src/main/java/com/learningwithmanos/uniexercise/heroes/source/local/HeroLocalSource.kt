@@ -25,6 +25,7 @@ interface HeroLocalSource {
     fun getHeroes(): List<Hero>
 }
 
+// TODO: Adjust the to use Hilt-Dagger
 class HeroLocalSourceImpl (
     private val dbWrapper: DBWrapper = CustomRuntimeDI.getDI().getDBWrapper(),
 ): HeroLocalSource {

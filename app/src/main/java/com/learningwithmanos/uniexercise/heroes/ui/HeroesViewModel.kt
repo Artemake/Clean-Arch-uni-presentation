@@ -8,18 +8,23 @@ import com.learningwithmanos.uniexercise.heroes.di.CustomRuntimeDI
 import com.learningwithmanos.uniexercise.heroes.usecase.GetHeroesSortedByHighestNumberOfComicsUC
 import com.learningwithmanos.uniexercise.heroes.usecase.GetHeroesSortedByNameUC
 import com.learningwithmanos.uniexercise.heroes.usecase.GetHeroesUC
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
+import javax.inject.Inject
 
-class HeroesViewModel(
-    private val getHeroesUC: GetHeroesUC = CustomRuntimeDI.getDI().getHeroesUC(),
+@HiltViewModel
+// TODO: Adjust to inject the dependencies to the constructor
+class HeroesViewModel @Inject constructor() : ViewModel() {
+
+    private val getHeroesUC: GetHeroesUC = CustomRuntimeDI.getDI().getHeroesUC()
     private val getHeroesSortedByNameUC: GetHeroesSortedByNameUC = CustomRuntimeDI.getDI()
-        .getHeroesSortedByNameUC(),
-    private val getHeroesSortedByHighestNumberOfComicsUC: GetHeroesSortedByHighestNumberOfComicsUC = CustomRuntimeDI.getDI()
-        .getHeroesSortedByHighestNumberOfComicsUC(),
-) : ViewModel() {
+        .getHeroesSortedByNameUC()
+    private val getHeroesSortedByHighestNumberOfComicsUC: GetHeroesSortedByHighestNumberOfComicsUC =
+        CustomRuntimeDI.getDI()
+            .getHeroesSortedByHighestNumberOfComicsUC()
 
     private var _selectedTabStateFlow: MutableStateFlow<Tab> = MutableStateFlow(Tab.Heroes)
 

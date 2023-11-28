@@ -7,6 +7,7 @@ interface RestFrameworkWrapper{
     fun getHeroes(): List<Hero>
 }
 
+// TODO: Adjust the to use Hilt-Dagger
 class DummyRestFrameworkWrapper(): RestFrameworkWrapper {
     override fun getHeroes(): List<Hero> {
         return DummyData.dummyHeroList

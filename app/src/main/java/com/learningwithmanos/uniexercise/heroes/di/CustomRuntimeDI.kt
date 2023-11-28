@@ -17,6 +17,7 @@ import com.learningwithmanos.uniexercise.heroes.usecase.GetHeroesSortedByNameUCI
 import com.learningwithmanos.uniexercise.heroes.usecase.GetHeroesUC
 import com.learningwithmanos.uniexercise.heroes.usecase.GetHeroesUCImpl
 
+// TODO: Remove the custom runtime DI and replace it with the Hilt-Dagger DI
 class CustomRuntimeDI private constructor() {
 
     companion object DIObject {

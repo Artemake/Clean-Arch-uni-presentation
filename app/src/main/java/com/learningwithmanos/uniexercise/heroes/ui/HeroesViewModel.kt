@@ -30,7 +30,7 @@ class HeroesViewModel @Inject constructor(
     )
 
     // TODO
-    val heroesStateFlow: StateFlow<List<HeroTileModel>>
+    val heroesStateFlow: StateFlow<List<HeroTileModel>> = MutableStateFlow(listOf())
 
     /**
      * Utilises corresponding UC to retrieve data based on the selectedTab.

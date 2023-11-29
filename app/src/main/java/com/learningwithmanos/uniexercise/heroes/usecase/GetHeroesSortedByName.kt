@@ -3,6 +3,7 @@ package com.learningwithmanos.uniexercise.heroes.usecase
 import com.learningwithmanos.uniexercise.heroes.data.Hero
 import com.learningwithmanos.uniexercise.heroes.repo.HeroRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 
 /**
@@ -16,4 +17,7 @@ class GetHeroesSortedByNameUCImpl @Inject constructor(
     private val heroRepository: HeroRepository
 ): GetHeroesSortedByNameUC {
     // TODO
+    override suspend fun execute(): Flow<List<Hero>> {
+        return flowOf(listOf())
+    }
 }

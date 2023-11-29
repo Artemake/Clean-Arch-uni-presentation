@@ -48,7 +48,7 @@ class HeroRepositoryImplTest {
     fun `given no data are stored when getHeroes is invoked then verify api call and store to DB`() = runTest{
         // given
         given(heroLocalSourceMock.isHeroDataStored()).willReturn(flowOf(false))
-        given(heroRemoteSourceMock.getHeroes()).willReturn(flowOf(dummyHeroData))
+        given(heroRemoteSourceMock.getHeroes()).willReturn(dummyHeroData)
 
         // when
         heroRepositoryImpl.getHeroes().collect { actualHeroes ->
